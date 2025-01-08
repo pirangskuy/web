@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goda Selatan - Restaurant</title>
+    <style>
+        /* Reset CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Color Variables - menggunakan warna dari logo */
+        :root {
+            --primary-brown: #3A1F04;
+            --secondary-brown: #4A2805;
+            --light-brown: #6B3D09;
+            --text-white: #FFFFFF;
+            --bg-cream: #FFF9F2;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: var(--bg-cream);
+            color: var(--primary-brown);
+            line-height: 1.6;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--primary-brown);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            height: 50px;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 100%;
+            border-radius: 50%;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-white);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--bg-cream);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                url('Gambar2.jfif');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--text-white);
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .hero-logo {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 2rem;
+            border-radius: 50%;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-white);
+        }
+
+        /* Video Section */
+        .video-section {
+            padding: 3rem 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: var(--bg-cream);
+        }
+
+        .video-container {
+            width: 100%;
+            max-width: 800px;
+            margin-bottom: 2rem;
+        }
+
+        video {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .video-text {
+            text-align: center;
+            max-width: 800px;
+        }
+
+        .video-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .video-text p {
+            font-size: 1.2rem;
+        }
+
+        /* Menu Section */
+        .menu-section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .menu-item {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .menu-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .menu-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .menu-item-content {
+            padding: 1.5rem;
+        }
+
+        /* Order Box Styles */
+        .order-box {
+            margin-top: 3rem;
+            padding: 2rem;
+            background: var(--light-brown);
+            color: var(--text-white);
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .order-box h3 {
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+
+        .order-box p {
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+
+        .order-box a {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: var(--primary-brown);
+            color: var(--text-white);
+            text-decoration: none;
+            font-size: 1rem;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .order-box a:hover {
+            background: var(--secondary-brown);
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background-color: var(--secondary-brown);
+            color: var(--text-white);
+            padding: 5rem 2rem;
+        }
+
+        .contact-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-brown);
+            color: var(--text-white);
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+<audio controls autoplay loop>>
+    <source src="song.mp3" type="audio/mpeg">
+
+    Browser Anda tidak mendukung elemen audio.
+</audio>
+
+<header>
+    <nav>
+        <div class="logo">
+            <img src="Logo.png" alt="Goda Selatan Logo">
+        </div>
+        <div class="nav-links">
+            <a href="Goda%20Selatan.html">Beranda</a>
+            <a href="Menu.html">Menu</a>
+            <a href="Tentang.html">Tentang</a>
+            <a href="#contact">Kontak</a>
+        </div>
+    </nav>
+</header>
+
+<section class="hero" id="home">
+    <div class="hero-content">
+        <img src="Gambar1.jfif" alt="Goda Selatan Logo" class="hero-logo">
+        <h1>Goda Selatan</h1>
+        <p>Restaurant halal food</p>
+    </div>
+</section>
+
+<section class="video-section">
+    <div class="video-container">
+        <video controls>
+            <source src="video.MOV" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <div class="video-text">
+        <h2>Selamat Datang di Goda Selatan!</h2>
+        <p>Nikmati video tentang hidangan spesial kami dan suasana restoran yang nyaman. Kami menyajikan makanan halal
+            dengan cita rasa terbaik untuk Anda.</p>
+    </div>
+</section>
+
+<section class="menu-section" id="menu">
+    <h2>Menu Spesial Kami</h2>
+    <div class="menu-grid">
+        <!-- Menu Items -->
+        <div class="menu-item">
+            <img src="Menu1.jfif" alt="Sop Tulang Iga">
+            <div class="menu-item-content">
+                <h3>Sop Tulang Iga</h3>
+                <p>Sop Tulang Iga dengan daging yang lembut khas Goda Selatan</p>
+                <p class="price">Rp 40.000</p>
+            </div>
+        </div>
+        <div class="menu-item">
+            <img src="Menu2.jfif" alt="Soto Ayam Spesial">
+            <div class="menu-item-content">
+                <h3>Soto Ayam Spesial</h3>
+                <p>Soto Ayam Spesial dengan kuah yang gurih</p>
+                <p class="price">Rp 20.000</p>
+            </div>
+        </div>
+        <div class="menu-item">
+            <img src="Menu3.jfif" alt="Nasi Goreng Mentega Iga Bakar">
+            <div class="menu-item-content">
+                <h3>Nasi Goreng Mentega Iga Bakar</h3>
+                <p>Nasi Goreng yang dimasak dengan smoky bersama iga bakar</p>
+                <p class="price">Rp 45.000</p>
+            </div>
+        </div>
+        <div class="menu-item">
+            <img src="Menu4.jfif" alt="Nasi Bakar Ayam Suwir">
+            <div class="menu-item-content">
+                <h3>Nasi Bakar Ayam Suwir</h3>
+                <p>Nasi Bakar Ayam Suwir spesial dengan bumbu khas kami</p>
+                <p class="price">Rp 28.000</p>
+            </div>
+        </div>
+        <div class="menu-item">
+            <img src="Menu5.jpeg" alt="Kulit Ayam Goreng">
+            <div class="menu-item-content">
+                <h3>Kulit Ayam Goreng</h3>
+                <p>Kulit ayam goreng yang renyah dan gurih</p>
+                <p class="price">Rp 18.000</p>
+            </div>
+        </div>
+        <div class="menu-item">
+            <img src="Menu6.jpeg" alt="Paket Nasi Cumi Sambal Matah">
+            <div class="menu-item-content">
+                <h3>Paket Nasi Cumi Sambal Matah</h3>
+                <p>Nasi cumi dengan sambal matah yang menggugah selera</p>
+                <p class="price">Rp 35.000</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="order-box">
+        <h3>Pesan Sekarang</h3>
+        <p>Klik tombol di bawah untuk memesan makanan favorit Anda!</p>
+        <a href="Pesanan%20Anda.html" target="_blank">Pesan Sekarang</a>
+    </div>
+</section>
+
+<section class="contact-section" id="contact">
+    <div class="contact-content">
+        <div>
+            <h2>Hubungi Kami</h2>
+            <p>Jl. Aris Margono No.6, Benua Melayu Darat, Kec. Pontianak Sel., Kota Pontianak, Kalimantan Barat 78113</p>
+            <p>Telp: 085805356171</p>
+            <p><a href="https://g.co/kgs/ixtDsy7" target="_blank">Email: godaselatan@gmail.com</a></p>
+            <p><a href="https://www.instagram.com/godaselatan.id/" target="_blank">Instagram: @godaselatan</a></p>
+        </div>
+
+        <div>
+            <h2>Lokasi Kami</h2>
+            <!-- Peta Embedded Google -->
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.8171733992967!2d109.33772407403903!3d-0.043444235528577686!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e1d59005e10a5a9%3A0x64d01bddb382032e!2sTM.%20Goda%20Selatan!5e0!3m2!1sid!2sid!4v1736075638867!5m2!1sid!2sid" width="300" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <p><a href="https://www.google.com/maps?q=Jl.%20Aris%20Margono%20No.6,%20Benua%20Melayu%20Darat,%20Kec.%20Pontianak%20Sel.,%20Kota%20Pontianak,%20Kalimantan%20Barat%2078113" target="_blank">Lihat di Google Maps</a></p>
+        </div>
+
+        <div>
+            <h2>Jam Operasional</h2>
+            <p>Setiap Hari: 07.00 - 22:00</p>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>Nikmati semua yang kami sajikan</p>
+</footer>
+
+</body>
+
+</html>

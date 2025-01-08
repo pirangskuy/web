@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f1e9; /* Warna coklat muda */
+        }
+        header {
+            background-color: #3A1F04; /* Warna coklat tua */
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo img {
+            max-height: 50px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 30px; /* Menambahkan jarak antara menu */
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: #d4a373; /* Warna coklat keemasan */
+        }
+        .container {
+            width: 90%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .menu-section {
+            margin-bottom: 40px;
+        }
+        .menu-section h2 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #3A1F04; /* Warna coklat tua */
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .menu-images {
+            display: flex;
+            flex-wrap: nowrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .menu-images img {
+            width: 200px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .menu-images img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="logo">
+        <img src="Logo.png" alt="Goda Selatan Logo">
+    </div>
+    <div class="nav-links">
+        <a href="Goda%20Selatan.html">Beranda</a>
+        <a href="Menu.html">Menu</a>
+        <a href="Tentang.html">Tentang</a>
+    </div>
+</header>
+<main class="container">
+    <section class="menu-section">
+        <h2>Menu Minuman</h2>
+        <div class="menu-images">
+            <img src="MenuBook2.jpeg" alt="Daftar Menu Minuman Goda Selatan">
+        </div>
+    </section>
+
+    <section class="menu-section">
+        <h2>Menu Makanan Berat</h2>
+        <div class="menu-images">
+            <img src="MenuBook1.jpeg" alt="Daftar Menu À la Carte Goda Selatan">
+        </div>
+    </section>
+
+    <section class="menu-section">
+        <h2>Menu Hidangan Tambahan</h2>
+        <div class="menu-images">
+            <img src="MenuBook4.jpeg" alt="Daftar Menu Hidangan Tambahan Goda Selatan">
+        </div>
+    </section>
+
+    <section class="menu-section">
+        <h2>Menu Penutup</h2>
+        <div class="menu-images">
+            <img src="MenuBook3.jpeg" alt="Daftar Menu Penutup Goda Selatan">
+        </div>
+    </section>
+</main>
+</body>
+</html>

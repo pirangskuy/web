@@ -1,0 +1,55 @@
+/* Video Section */
+.video-section {
+    padding: 5rem 2rem;
+    background-color: var(--bg-cream);
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.video-container {
+    width: 100%;
+    max-width: 900px; /* Atur ukuran video menjadi lebih besar */
+    margin-bottom: 2rem;
+}
+
+.video-container video {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.video-text {
+    max-width: 800px; /* Menyesuaikan ukuran teks dengan lebar video */
+    margin-top: 2rem;
+}
+
+.video-text h2 {
+    font-size: 2rem;
+    color: var(--primary-brown);
+    margin-bottom: 1rem;
+}
+
+.video-text p {
+    font-size: 1.1rem;
+    color: var(--primary-brown);
+}
+
+@media (max-width: 768px) {
+    .video-container {
+        max-width: 100%; /* Membuat video lebih kecil pada layar lebih kecil */
+    }
+
+    .video-text h2 {
+        font-size: 1.5rem;
+    }
+
+    .video-text p {
+        font-size: 1rem;
+    }
+}

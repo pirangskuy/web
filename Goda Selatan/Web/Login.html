@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman Login</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #e0d2b9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .login-container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            text-align: center;
+            border: 1px solid #d1c4b1;
+        }
+        h2 {
+            font-size: 24px;
+            color: #6a4e23;
+            margin-bottom: 20px;
+        }
+        .input-field {
+            width: 100%;
+            padding: 12px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border: 1px solid #d1b49f;
+            background-color: #faf1e6;
+            font-size: 16px;
+        }
+        .input-field:focus {
+            border-color: #6a4e23;
+            background-color: #fff;
+            outline: none;
+        }
+        .btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #6a4e23;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #8a5a32;
+        }
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+        .forgot-password,
+        .create-account {
+            font-size: 14px;
+            color: #6a4e23;
+            text-decoration: none;
+            margin-top: 10px;
+            display: block;
+        }
+        .forgot-password:hover,
+        .create-account:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+<div class="login-container">
+    <h2>Login Ke Akun Anda</h2>
+    <form action="#" method="POST">
+        <input type="text" name="username" class="input-field" placeholder="Username" required>
+        <input type="password" name="password" class="input-field" placeholder="Password" required>
+        <button type="submit" class="btn">Masuk</button>
+    </form>
+    <a href="Goda%20Selatan.html" class="forgot-password">Lupa password?</a>
+    <div class="error-message" style="display: none;">
+        Username atau password salah!
+    </div>
+    <a href="BuatAkun.html" class="create-account">Belum punya akun? Buat akun baru</a>
+</div>
+</body>
+</html>

@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pesanan Anda - Goda Selatan</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <style>
+    :root {
+        --primary: #3A1F04;
+        --secondary: #4A2805;
+        --accent: #6B3D09;
+        --background: #FFF9F2;
+        --card: #FFFFFF;
+        --text-light: #8B5E34;
+        --highlight: #C17F59;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        transition: all 0.3s ease;
+    }
+
+    body {
+        font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        background-color: var(--background);
+        color: var(--primary);
+        line-height: 1.6;
+    }
+
+    header {
+        background-color: var(--primary);
+        padding: 1.5rem;
+        box-shadow: 0 4px 6px rgba(58, 31, 4, 0.1);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+
+    .header-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    a {
+        font-size: 1.8rem;
+        font-weight: 600;
+        color: var(--card);
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 2rem auto;
+        padding: 0 1rem;
+    }
+
+    .menu-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .menu-item {
+        background: var(--card);
+        border-radius: 12px;
+        padding: 1.5rem;
+        box-shadow: 0 4px 6px rgba(58, 31, 4, 0.1);
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        border: 1px solid rgba(58, 31, 4, 0.1);
+    }
+
+    .menu-item:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 12px rgba(58, 31, 4, 0.15);
+        border-color: var(--highlight);
+    }
+
+    .menu-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: start;
+    }
+
+    .menu-title {
+        font-weight: 600;
+        font-size: 1.1rem;
+        color: var(--primary);
+    }
+
+    .menu-price {
+        font-weight: 600;
+        color: var(--accent);
+        font-size: 1.1rem;
+    }
+
+    .quantity-control {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-top: auto;
+    }
+
+    .quantity-btn {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        border: 1px solid var(--accent);
+        background: var(--card);
+        color: var(--accent);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+    }
+
+    .quantity-btn:hover {
+        background: var(--accent);
+        color: var(--card);
+    }
+
+    .quantity-input {
+        width: 60px;
+        text-align: center;
+        border: 1px solid rgba(58, 31, 4, 0.2);
+        background: var(--background);
+        padding: 0.5rem;
+        border-radius: 8px;
+        font-weight: 600;
+        color: var(--primary);
+    }
+
+    .order-summary {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: var(--primary);
+        padding: 1.5rem;
+        box-shadow: 0 -4px 6px rgba(58, 31, 4, 0.1);
+        transform: translateY(0);
+        z-index: 1000;
+    }
+
+    .summary-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .total-amount {
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: var(--card);
+    }
+
+    .pay-button {
+        background: var(--highlight);
+        color: white;
+        border: none;
+        padding: 1rem 2rem;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .pay-button:hover {
+        background: var(--accent);
+    }
+
+    .pay-button:disabled {
+        background: var(--text-light);
+        cursor: not-allowed;
+        opacity: 0.7;
+    }
+
+    .category-title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin: 2rem 0 1rem;
+        color: var(--primary);
+        border-bottom: 2px solid var(--highlight);
+        padding-bottom: 0.5rem;
+        display: inline-block;
+    }
+
+    @keyframes slideUp {
+        from {
+            transform: translateY(100%);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    .menu-item {
+        animation: slideUp 0.3s ease-out forwards;
+    }
+
+    .badge {
+        background: var(--highlight);
+        color: white;
+        padding: 0.4rem 1rem;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+    }
+
+    @media (max-width: 768px) {
+        .menu-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .header-content {
+            flex-direction: column;
+            gap: 1rem;
+            text-align: center;
+        }
+
+        .summary-content {
+            flex-direction: column;
+            gap: 1rem;
+            text-align: center;
+        }
+
+        .pay-button {
+            width: 100%;
+            justify-content: center;
+        }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="header-content">
+    <a href="Goda%20Selatan.html">Goda Selatan</a>
+    <div class="badge">Login</div>
+  </div>
+</header>
+
+<div class="container">
+  <div class="category-title">Menu Utama</div>
+  <div class="menu-grid" id="mainDishes">
+    <!-- Menu items will be populated by JavaScript -->
+  </div>
+
+  <div class="category-title">Minuman</div>
+  <div class="menu-grid" id="drinks">
+    <!-- Drinks will be populated by JavaScript -->
+  </div>
+
+  <div class="category-title">Makanan Ringan</div>
+  <div class="menu-grid" id="snacks">
+    <!-- Snacks will be populated by JavaScript -->
+  </div>
+</div>
+
+<div class="order-summary">
+  <div class="summary-content">
+    <div class="total-amount" id="totalAmount">Total: Rp 0</div>
+    <button class="pay-button" id="payButton" disabled>
+      <i class="fas fa-wallet"></i>
+      <a href="Login.html" target="_blank" style="font-size: 0.9rem;">Bayar Sekarang</a>
+    </button>
+  </div>
+</div>
+
+<script>
+  const menuItems = {
+      mainDishes: [
+          { id: 'item1', name: 'Sop Tulang Iga', price: 40000 },
+          { id: 'item2', name: 'Soto Ayam Spesial', price: 20000 },
+          { id: 'item3', name: 'Nasi Goreng Mentega Iga Bakar', price: 45000 },
+          { id: 'item4', name: 'Nasi Bakar Ayam Suwir', price: 28000 },
+          { id: 'item5', name: 'Kulit Ayam Goreng', price: 18000 }
+      ],
+      drinks: [
+          { id: 'item6', name: 'Teh Es', price: 7000 },
+          { id: 'item7', name: 'Teh Tawar', price: 8000 }
+      ],
+      snacks: [
+          { id: 'item8', name: 'Pisang Goreng Madu', price: 8000 },
+          { id: 'item9', name: 'Pisang Goreng Coklat', price: 7000 },
+          { id: 'item10', name: 'Pisang Goreng Wijen', price: 15000 }
+      ]
+  };
+
+  function createMenuItem(item) {
+      return `
+          <div class="menu-item">
+              <div class="menu-header">
+                  <div class="menu-title">${item.name}</div>
+                  <div class="menu-price">Rp ${item.price.toLocaleString('id-ID')}</div>
+              </div>
+              <div class="quantity-control">
+                  <button class="quantity-btn" onclick="updateQuantity('${item.id}', -1)">
+                      <i class="fas fa-minus"></i>
+                  </button>
+                  <input type="number" id="${item.id}" class="quantity-input" value="0" min="0" max="10"
+                         onchange="validateInput(this)" readonly>
+                  <button class="quantity-btn" onclick="updateQuantity('${item.id}', 1)">
+                      <i class="fas fa-plus"></i>
+                  </button>
+              </div>
+          </div>
+      `;
+  }
+
+  // Populate menu sections
+  Object.keys(menuItems).forEach(category => {
+      const container = document.getElementById(category);
+      menuItems[category].forEach(item => {
+          container.innerHTML += createMenuItem(item);
+      });
+  });
+
+  function updateQuantity(itemId, change) {
+      const input = document.getElementById(itemId);
+      let newValue = parseInt(input.value) + change;
+
+      if (newValue >= 0 && newValue <= 10) {
+          input.value = newValue;
+          calculateTotal();
+      }
+  }
+
+  function validateInput(input) {
+      let value = parseInt(input.value) || 0;
+      input.value = Math.max(0, Math.min(10, value));
+      calculateTotal();
+  }
+
+  function calculateTotal() {
+      let total = 0;
+      let hasItems = false;
+
+      Object.values(menuItems).flat().forEach(item => {
+          const qty = parseInt(document.getElementById(item.id).value) || 0;
+          if (qty > 0) hasItems = true;
+          total += qty * item.price;
+      });
+
+      document.getElementById("totalAmount").innerText =
+          `Total: Rp ${total.toLocaleString('id-ID')}`;
+      document.getElementById("payButton").disabled = !hasItems;
+
+      return total;
+  }
+
+  document.getElementById("payButton").addEventListener("click", function() {
+      const total = calculateTotal();
+      if (total > 0) {
+          const formattedTotal = total.toLocaleString('id-ID');
+          if (confirm(`Konfirmasi pembayaran sebesar Rp ${formattedTotal}?`)) {
+              alert("Pembayaran berhasil! Pesanan Anda akan segera diproses.");
+              resetForm();
+          }
+      }
+  });
+
+  function resetForm() {
+      document.querySelectorAll('.quantity-input').forEach(input => {
+          input.value = 0;
+      });
+      calculateTotal();
+  }
+</script>
+</body>
+</html>
